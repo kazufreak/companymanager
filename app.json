@@ -1,0 +1,12 @@
+{
+  "name": "companymanager",
+  "displayName": "companymanager",
+  "expo": {
+    "name": "companymanager",
+    "slug": "companymanager",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
