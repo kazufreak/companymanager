@@ -1,0 +1,12 @@
+{
+  "name": "CompanyTool",
+  "displayName": "CompanyTool",
+  "expo": {
+    "name": "CompanyTool",
+    "slug": "CompanyTool",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
