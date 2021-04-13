@@ -2,18 +2,17 @@ import React,{Component} from 'react';
 import {Text, View, StyleSheet,Button} from 'react-native';
 
 
-export class Home extends Component{
-
+export default class Home extends Component{
     render() {
         return (
-          <View style={styles.container}>
+          <View>
             <View style={styles.title}>
               <Text>CompanyManager</Text>
             </View>
             <View style={styles.buttonContiner}>
-              <Button titlw={"PrivateUser"}></Button>
+              <Button onPress={()=>this.props.navigation.navigate('呼吸確認')}>PrivateUser</Button>
             </View>
-            <Text style={{marginTop: 100}}>My name is {this.props.name}.</Text>
+            <Text style={{marginTop: 100}}>My name is</Text>
           </View>
         )
       }
@@ -38,4 +37,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home)
+

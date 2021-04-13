@@ -5,6 +5,7 @@
     "name": "companymanager",
     "slug": "companymanager",
     "version": "1.0.0",
+    "appKey":"companymanager",
     "assetBundlePatterns": [
       "**/*"
     ]
