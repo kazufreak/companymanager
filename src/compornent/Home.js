@@ -6,20 +6,20 @@ export default class Home extends Component{
     render() {
         return(
             <View style={styles.container}>
-                <Text style={styles.title}>CompanyTool</Text>
+                <Text style={styles.title}>AED Helper</Text>
                 <View >
                     <Button
                         raised
                         type="outline"
-                        icon={{name: 'hubot', type: 'octicon'}}
-                        title='Private User'
-                        onPress={()=>this.props.navigation.navigate('Private')}
+                        icon={{name: 'pulse', type: 'octicon'}}
+                        title='呼吸確認'
+                        onPress={()=>this.props.navigation.navigate('BressGuid')}
                         style={styles.button}/>
                     <Button
                         raised
                         type="outline"
                         icon={{name: 'globe', type: 'octicon'}}
-                        title='Gloval User'
+                        title='近くのAED'
                         onPress={()=>this.props.navigation.navigate('Gloval')}
                         style={styles.button}/>
                 </View>
@@ -31,16 +31,17 @@ export default class Home extends Component{
 
 const styles = StyleSheet.create({
     container: {
-      alignItems: 'center',
-      
-      flex:1,
-      backgroundColor: '#FFFFFF',
+        alignItems: 'center',
+        
+        flex:1,
+        backgroundColor: '#FFFFFF',
     },
     title:{
-      marginTop: 30,
-      marginBottom: 20,
-      fontSize:25,
-      fontWeight:'bold',
+        color:"red",
+        marginTop: 30,
+        marginBottom: 20,
+        fontSize:25,
+        fontWeight:'bold',
     },
 
     button: {

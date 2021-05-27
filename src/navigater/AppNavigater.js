@@ -3,7 +3,7 @@ import React from 'react';// 呼び出さないと動かない
 import { createStackNavigator } from '@react-navigation/stack';  
 import { NavigationContainer } from '@react-navigation/native';
 import Home from '../compornent/Home';
-import Private from '../compornent/PrivateUser';
+import BressGuid from '../compornent/BressGuid';
 import Gloval from '../compornent/GlovalUser';
 import UserData from '../compornent/Userdata';
     
@@ -18,7 +18,7 @@ function PageNavigator(){
                     headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'tomato' },
                 }}/>
-                <Stack.Screen name="Private" component={Private}/>
+                <Stack.Screen name="BressGuid" component={BressGuid}/>
                 <Stack.Screen name="Gloval" component={Gloval}/>
                 <Stack.Screen name="User" component={UserData}/>
             </Stack.Navigator>
