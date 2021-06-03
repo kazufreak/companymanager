@@ -1,28 +1,15 @@
 import React,{Component} from 'react';
-import { View, Text, ScrollView, Image, FlatList, StyleSheet, Dimensions} from 'react-native';
-import { Button,Image,Divider,Tile,Text} from 'react-native-elements'
-import Pagination,{Icon,Dot} from 'react-native-pagination'
+import { View, ScrollView, FlatList, StyleSheet, Dimensions} from 'react-native';
+import { Button,Divider,Tile,Image,Text} from 'react-native-elements'
 
-//lets use faker to create mock data
-let MockPersonList = new _.times(35,(i)=>{
-  return {
-    id:i,
-    index:i,
-    name:faker.name.findName(),
-    avatar:faker.internet.avatar(),
-    group:_.sample(["Family","Friend","Acquaintance","Other"]),
-    email:faker.internet.email(),
-  }
-})
 export default class BressGuid extends Component{
     render() {
         return(
           <View style={styles.container}>
-                    
-            
             <Tile
-              imageSrc={require('../static/github.png')}
-              style={{ width: 300, height: 100 }}
+              imageSrc={require('../static/2.png')}
+              imageProps={{resizeMode:'contain'}}
+              
               title="スマートフォンを画像の位置に置いて下さい"
             >
              
@@ -30,26 +17,24 @@ export default class BressGuid extends Component{
      
               </View>
             </Tile>
-            <Image 
-              source={require('../static/github.png')}
-              style={{ width: 300, height: 100 }}/>
-            <Divider style={{ height:2,backgroundColor: 'black' ,margin:10}} />
+         
+            <Divider style={{ height:3,backgroundColor: 'green' ,margin:10}} />
     
             <Button
-              raised
-              backgroundColor="#ff5622"
               title='呼吸確認START'
-              onPress={()=>this.props.navigation.navigate('')}
-              style={styles.button}/>
+              onPress={()=>this.props.navigation.navigate('BressCheck')}
+              buttonStyle={styles.button}
+              titleStyle={{fontFamily:"sans-serif",fontSize:25}}/>
           </View>
         )
     }
 }
+
 const styles = StyleSheet.create({
     container: {
       flex:1,
       backgroundColor: '#FFFFFF',
-      justifyContent: 'center',
+      //justifyContent: 'center',
     },
     title:{
       marginTop: 30,
@@ -59,7 +44,8 @@ const styles = StyleSheet.create({
     },
 
     button: {
-        margin:10
-      },
+      height:70,
+      margin: 10
+    },
 
   });
