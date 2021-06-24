@@ -1,19 +1,28 @@
 import React,{Component} from 'react';
 import { View, StyleSheet} from 'react-native';
-import MapView from 'react-native-maps';
+import MapView,{Marker} from 'react-native-maps';
+import Geolocation from 'react-native-geolocation-service';
+
+
 
 export default class MapComponent extends Component {
   render() {
     return (
-      <MapView 
-      style={styles.mapStyle}
-      initialRegion={{
-        latitude: 36.28825,
-        longitude: 136.7324,
-        latitudeDelta: 1.0,
-        longitudeDelta: 1.0,
-      }}
-       />
+      <View>
+        <MapView 
+          style={styles.mapStyle}
+          initialRegion={{
+          latitude: 36.234057,
+          longitude: 138.465578,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1,
+         }}/>
+        <Marker
+          coordinate={{latitude:36.234057,longitude:138.465578}}
+          title="test"
+          description="ttt"
+        />
+      </View>
     );
   }
 }

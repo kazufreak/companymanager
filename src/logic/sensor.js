@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import { View, Text,StyleSheet} from 'react-native';
 import { Accelerometer } from 'expo-sensors';
+import { abs } from 'react-native-reanimated';
+
 
 export default class Sensor extends Component {
     constructor() {
@@ -34,7 +36,7 @@ export default class Sensor extends Component {
         this.setState({ accelerometerData });
       });
       // 1秒ごとに加速度を測定
-      Accelerometer.setUpdateInterval(1000);
+      Accelerometer.setUpdateInterval(32);
     }
   
     // 加速度センシングを終了する
@@ -44,11 +46,13 @@ export default class Sensor extends Component {
       }
       this._subscription = null;
     }
-  
+  //
     render() {
       let { x, y, z } = this.state.accelerometerData;
+
       return (
         <View style={styles.container}>
+          <Text>判定 : {jage(x,y)}</Text>
           <Text>x : {x}</Text>
           <Text>y : {y}</Text>
           <Text>z : {z}</Text>
@@ -58,10 +62,33 @@ export default class Sensor extends Component {
   }
 
   //呼吸のあるなし判定関数
-  function jaghe(){
-      
-  }
+  function jage(x,y){
+    stop = bool;
+    bresstype =["呼吸無","呼吸有"]
+    res = 0;
+    flag = 0.2
+    if(abs(x) >= flag || abs(y) >= flag){
+        res = 1;
+      }else{
+        res = 0;
+      }
+    return bresstype[res];
+  };
+    
+
   
+  function checksum(x,y,z){
+    bresstype =["呼吸無","呼吸有"]
+    flag = 0.2
+    res = 0;
+    if(abs(x) >= flag || abs(y) >= flag){
+      res = 1;
+      }else{
+        res = 0;
+      }
+      return bresstype[res];
+  }
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
