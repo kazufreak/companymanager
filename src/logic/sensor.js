@@ -52,7 +52,7 @@ export default class Sensor extends Component {
 
       return (
         <View style={styles.container}>
-          <Text>判定 : {jage(x,y)}</Text>
+          <Text>判定 : {}</Text>
           <Text>x : {x}</Text>
           <Text>y : {y}</Text>
           <Text>z : {z}</Text>
