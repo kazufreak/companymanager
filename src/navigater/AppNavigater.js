@@ -6,7 +6,7 @@ import Home from '../compornent/Home';
 import MapComponent from '../compornent/AEDMap';
 import BressGuid from '../compornent/BressGuid';
 import BressCheck from '../compornent/BressCheck';
-import Gloval from '../compornent/GlovalUser';
+import UseAED from '../compornent/UseAED';
 import UserData from '../compornent/Userdata';
     
 const Stack = createStackNavigator();
@@ -23,8 +23,7 @@ function PageNavigator(){
                 <Stack.Screen name="BressGuid" component={BressGuid}/>
                 <Stack.Screen name="BressCheck" component={BressCheck}/>
                 <Stack.Screen name="MapComponent" component={MapComponent}/>
-
-                <Stack.Screen name="Gloval" component={Gloval}/>
+                <Stack.Screen name="UseAED" component={UseAED}/>
                 <Stack.Screen name="User" component={UserData}/>
             </Stack.Navigator>
         </NavigationContainer>

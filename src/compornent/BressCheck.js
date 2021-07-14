@@ -12,11 +12,6 @@ export default class BressCheck extends Component{
               <Sensor></Sensor>
         
             <View style={styles.buttonContainer}>
-                <Button
-                title='AEDの使い方'
-                onPress={()=>this.props.navigation.navigate('')}
-                buttonStyle={styles.button}
-                titleStyle={{fontFamily:"sans-serif",fontSize:25}}/>
             </View>    
           </View>
         )

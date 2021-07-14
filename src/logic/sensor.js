@@ -9,8 +9,12 @@ export default class Sensor extends Component {
       super();
       // state初期化
       this.state = {
-        accelerometerData: {}
+        span:32,
+        accelerometerData: {},//加速度取得データ
+        hantext:"",//呼吸有無リアルタイム計測
+        timer:0,
       };
+      
     }
   
     componentDidMount() {
@@ -26,6 +30,7 @@ export default class Sensor extends Component {
         this._unsubscribe();
       } else {
         this._subscribe();
+        
       }
     }
   
@@ -34,9 +39,13 @@ export default class Sensor extends Component {
       this._subscription = Accelerometer.addListener(accelerometerData => {
         // 加速度を取得
         this.setState({ accelerometerData });
+        //console.log(typeof(accelerometerData.x))
+        this.setState({hantext : jageText(accelerometerData.x,accelerometerData.y)});
+        this._timer();
+        
       });
       // 1秒ごとに加速度を測定
-      Accelerometer.setUpdateInterval(32);
+      Accelerometer.setUpdateInterval(this.state.span);
     }
   
     // 加速度センシングを終了する
@@ -45,14 +54,34 @@ export default class Sensor extends Component {
         this._subscription.remove();
       }
       this._subscription = null;
+    };
+    _timer(){
+      if(this.state.hantext == "呼吸無"){
+          this.setState({timer : this.state.timer+this.state.span});
+      }else{
+        this.setState({timer : 0})
+      }
     }
+    kokyuuCom = ()=>{
+      let res= "";
+        if(hate=="呼吸無"){
+          res = "<Text style={styles.kokyuu0}>判定 : {hate}>"
+        }else{
+          res = "<Text style={styles.kokyuu1}>判定 : {hate}>"
+        }
+        return res;
+    }
+    
   //
     render() {
       let { x, y, z } = this.state.accelerometerData;
-
+      let hate = this.state.hantext;
+      let count = this.state.timer;
+      let hateCom = this.kokyuuCom;
       return (
         <View style={styles.container}>
-          <Text>判定 : {}</Text>
+          <Text style={styles.kokyuu1}>判定 : {hate}</Text>
+          <Text>count : {count}</Text>
           <Text>x : {x}</Text>
           <Text>y : {y}</Text>
           <Text>z : {z}</Text>
@@ -63,16 +92,15 @@ export default class Sensor extends Component {
 
   //呼吸のあるなし判定関数
   function jageText(x,y){
-    stop = bool;
-    bresstype =["呼吸無","呼吸有"]
-    res = 0;
-    flag = 0.2
-    if(abs(x) >= flag || abs(y) >= flag){
-        res = 1;
-      }else{
-        res = 0;
-      }
-    return bresstype[res];
+    let bresstype =["呼吸無","呼吸有"]
+      let flag = 0.1;
+      let res = "";
+      if(Math.abs(x) > flag || Math.abs(y) > flag){
+          res = bresstype[1];
+        }else{
+          res = bresstype[0];
+        }
+      return res;
   };
     
 
@@ -96,4 +124,14 @@ export default class Sensor extends Component {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    kokyuu0:{
+      fontSize:25,
+      color:'red',
+      margin:20,
+    },
+    kokyuu1:{
+      fontSize:25,
+      color:'green',
+      margin:20,
+    }
   });

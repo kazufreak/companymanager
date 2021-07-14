@@ -24,6 +24,14 @@ export default class Home extends Component{
                     onPress={()=>this.props.navigation.navigate('MapComponent')}
                     buttonStyle={styles.button}
                     titleStyle={{fontFamily:"sans-serif",fontSize:25}}/>
+                <Button
+                    //raised
+                    type="outline"
+                    icon={{name: 'globe', type: 'octicon'}}
+                    title='AEDの使い方'
+                    onPress={()=>this.props.navigation.navigate('UseAED')}
+                    buttonStyle={styles.button}
+                    titleStyle={{fontFamily:"sans-serif",fontSize:25}}/>
                
                
             </View>
