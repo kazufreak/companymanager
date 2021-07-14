@@ -52,7 +52,7 @@ export default class Sensor extends Component {
 
       return (
         <View style={styles.container}>
-          <Text>判定 : {jage(x,y)}</Text>
+          <Text>判定 : {}</Text>
           <Text>x : {x}</Text>
           <Text>y : {y}</Text>
           <Text>z : {z}</Text>
@@ -62,7 +62,7 @@ export default class Sensor extends Component {
   }
 
   //呼吸のあるなし判定関数
-  function jage(x,y){
+  function jageText(x,y){
     stop = bool;
     bresstype =["呼吸無","呼吸有"]
     res = 0;
